@@ -13,10 +13,21 @@ const wrapAsync = require("./utils/wrapAsync.js");
 const passport = require("passport");
 const localStratergy = require("passport-local");
 const User = require("./models/user.js");
-const Blog = require("./models/blog.js");
-const StartUp = require("./models/startup.js");
 const Appointment = require(".models/appointment.js");
 
+
+const sessionOptions = {
+    // store,
+    secret: "jabvkjabn",
+    resave: false,
+    saveUninitialized: true,
+    cookie: {
+      expires: Date.now() + 7 * 24 * 60 * 60 * 1000,//here we have set expiry time in milliseconds
+      maxAge: 7 * 24 * 60 * 60 * 1000,//
+      httpOnly: true,
+    },
+  };
+  
 app.set("view engine", "html");
 
 app.use(express.static("public"));
