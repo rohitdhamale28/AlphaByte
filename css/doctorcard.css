@@ -1,0 +1,52 @@
+
+/* doctor-card css start  */
+.heading {
+    text-align: center;
+    font-size: 50px;
+
+}
+
+h1>span {
+    color: var(--green);
+
+}
+
+.doc-card {
+    border: 2px solid #000000;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+.doc-card .card-img-top {
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.doc-card .card-body {
+    padding: 1.5rem;
+}
+
+.doc-card .card-title {
+    font-size: 3rem;
+    margin-bottom: 10px;
+}
+
+.doc-card .card-text {
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+}
+
+.mu-btn {
+    display: flex;
+    justify-content: space-between;
+    text-decoration: none;
+}
+
+.mu-btn {
+    font-size: 1.48rem;
+    padding: 0.5rem 1.5rem;
+    border-radius: 0.5rem;
+    background-color: black;
+    color: #fff;
+    transition: all 0.3s ease;
+}

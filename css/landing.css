@@ -1,0 +1,51 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+}
+body, html {
+    overflow-x: hidden;
+    background-color: #01304a;
+
+}
+.txt a{
+    text-decoration: none;
+}
+
+.bg img{
+    width:100vw;
+    height: 100vh;
+}
+.download_app_btn_left {
+    position: absolute;
+    left: 18%;
+    top: 56%;
+}
+.download_app_btn a {
+    
+    font-weight: 500;
+    text-align: center;
+    font-size: 25px;
+    background: #ffffff;
+    padding: 15px 45px;
+    color: #01304a;
+    border-radius: 50px 50px 0;
+}
+
+.download_app_btn_right {
+    position: absolute;
+    right: 18%;
+    top: 56%;
+    
+}
+
+.ftxt{
+    position: relative;
+    background-color: #01304a;
+    padding: 50px 0;
+    color: white;
+    text-align: center;
+    padding-left: 80px;
+    padding-right: 80px;
+}
