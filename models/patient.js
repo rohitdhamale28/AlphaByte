@@ -8,7 +8,7 @@ const passportLocalMongoose = require("passport-local-mongoose");
 // it's usefull for login and password and has inbuilt hash functions and salts
 
 // passort automatically save a user name if we don't provide it
-const doctorSchema = new Schema({
+const patientSchema = new Schema({
     email: {
         type: String,
         required: true,
@@ -18,11 +18,7 @@ const doctorSchema = new Schema({
         default: "https://img.freepik.com/free-psd/3d-illustration-person-with-sunglasses_23-2149436188.jpg?size=626&ext=jpg&ga=GA1.1.430452632.1708180075&semt=sph",
         //   set: (v)=> v==="" ? "https://img.freepik.com/free-psd/3d-illustration-person-with-sunglasses_23-2149436188.jpg?size=626&ext=jpg&ga=GA1.1.430452632.1708180075&semt=sph": v,
     },
-    education: {
-        type: String,
-
-    },
-  
+   
     appointments: [
         {
             type: mongoose.Schema.Types.ObjectId,
@@ -36,4 +32,4 @@ const doctorSchema = new Schema({
 
 userSchema.plugin(passportLocalMongoose);
 
-module.exports = mongoose.model("Doctor", doctorSchema);
+module.exports = mongoose.model("Patient", patientSchema);
