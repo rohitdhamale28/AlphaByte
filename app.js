@@ -27,10 +27,23 @@ const sessionOptions = {
       httpOnly: true,
     },
   };
-  
-app.set("view engine", "html");
 
-app.use(express.static("public"));
+  // all the user route are stored in this file
+const courses = require("./routes/user.js");
+
+// all the appointment route are stored in this file
+const reviews = require("./routes/appointment.js");
+
+const { validatecourse, isLoggedIn, isOwner } = require("./middleware.js");
+
+const { reviewSchema } = require("./joi.js");
+const ejsMate = require('ejs-mate');
+
+app.engine('ejs', ejsMate);
+app.use(methodOverride("_method"));
+app.set("view engine", "ejs");
+app.set("views", path.join(__dirname, "/views"));
+app.use(express.static(path.join(__dirname, "public")));
 app.use(express.urlencoded({ extended: true }));
 
 main().then(() => {
