@@ -1,0 +1,30 @@
+<% layout("/layouts/boilerplate") %>
+<body>
+    <br>
+  <div class="row row-col-lg-3 row-cols-md-2 row-cols-sm-1">
+    <% for(let list of allUsers){ %>
+      <% if ( list.type=="entrepreneur") {%>
+    <div class="col-sm-3">
+      <div class="card" style="width: 17rem ">
+        <img src="<%= list.image %>" class="card-img-top" alt="img" />
+        <div class="card-body">
+          <h5 class="card-title"><b><%= list.username %></b></h5>        
+          <h5 class="card-description">StartUp: <%= list.company %></h5>
+          <h5 class="card-description">Post: <%= list.post %></h5>
+          <h5 class="card-description">Skills: <%= list.skills %></h5>
+          <br>
+          <% if (currentUser) {%>
+            <form method="POST" action="/users/<%= list._id  %>?_method=PUT">
+              <button class="btn btn-primary">Follow</button>  
+            </form>
+             <br>
+            <% } %>
+          <a href="/users/<%= list._id %>" class="btn btn-primary">View Profile</a>
+        </div>
+      </div>
+    </div>
+    <br>
+    <% } %>
+    <% } %>
+  </div>
+</body>

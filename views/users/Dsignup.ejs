@@ -1,0 +1,66 @@
+<% layout("/layouts/boilerplate") %>
+<!-- this is the boilerplate imported using ejs-mate -->
+<body>
+    <br>
+    <br>
+    <h2>Doctor SignUp</h2>
+    <form method="POST" action="/signup" class="needs-validation" novalidate>
+        <div>
+            <label for="username" class="form-label">Username</label>
+            <input type="text" name="username" class="form-control" id="username" placeholder="Username" style="width: 500px;" required>
+            <div class="invalid-feedback">Please enter a username.</div>
+        </div>
+        <br>
+        <label for="type">Type</label><br>
+       
+        <input type="radio" id="doctor" name="type" value="doctor">
+        <label for="doctor">Doctor</label><br>
+        <!-- <input type="radio" id="patient" name="type" value="patient">
+        <label for="patient">Patient</label> -->
+        
+        <br>
+        <div>
+            <label for="education" class="form-label">Education </label>
+            <input type="text" name="education" class="form-control" placeholder="Enter Your Qualificaion" style="width: 500px;" required>
+            <div class="invalid-feedback">Please enter a Education </div>
+            
+        </div>
+        <br>
+        <div>
+            <label for="image" class="form-label">Image Link</label>
+            <input
+              type="text"
+              name="image"
+              style="width: 500px;"
+              class="form-control"
+              placeholder="Enter url link"
+            />
+          </div>
+          <div class="invalid-feedback">Please Enter Image URL</div>
+          <br />
+        <div>
+            <label for="email" class="form-label">Email</label>
+            <input type="email" name="email" class="form-control" placeholder="Enter email" style="width: 500px;" required>
+            <div class="invalid-feedback">Please enter an email.</div>
+        </div>
+        <br>
+        <div>
+            <label for="password" class="form-label">Password</label>
+            <input type="password" name="password" class="form-control" placeholder="Enter Password" style="width: 500px;">
+            <div class="invalid-feedback">Please enter a password.</div>
+        </div>
+        <br>
+        <br>
+        <button class="btn btn-primary">Sign Up</button>
+    </form>
+    <br><br>
+    <form method="get" action="/login">
+        <button class="btn btn-dark">Login</button>
+
+    </form>
+        
+
+ 
+    <br>
+    <br>
+</body>

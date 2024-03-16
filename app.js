@@ -89,7 +89,7 @@ app.use((req, res, next) => {
 });
 
 
-// app.use("/", users);
+app.use("/", users);
 
 
 app.get("/", (req, res) => {

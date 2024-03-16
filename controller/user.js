@@ -13,14 +13,15 @@ module.exports.signup=async (req, res) => {
       //  console.log(registerUser);
   
       // 'req.login' is also a functionallity to login directly after signup built in passport
-      req.login(registerUser, (err) => {
-        if (err) {
-          return next(err);
-        }
-        req.flash("success", " Welcome to StartHub");
-        res.redirect("/");
-      });
-  
+      // req.login(registerUser, (err) => {
+      //   if (err) {
+      //     return next(err);
+      //   }
+      //   req.flash("success", " Welcome to StartHub");
+      //   res.redirect("/");
+      // });
+      req.flash("success", " Welcome to StartHub");
+      
     }
     catch (err) {
       req.flash("error", err.message);
