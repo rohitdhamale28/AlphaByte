@@ -1,0 +1,94 @@
+
+section:nth-child(even){
+ background: #f5f5f5;
+}
+
+.icons-container{
+display: flex;
+flex-wrap: wrap;
+gap: 20px;
+grid-template-columns :repeat (auto-fit, minmax(20rem, 1fr));
+padding: 15px;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.icons-container .icons{
+border: .2rem solid #16a085 ;
+box-shadow: .2rem solid #16a085;
+border-radius: .5rem;
+text-align:center;
+padding: .5rem;
+
+
+}
+
+.icons-container .icons i{
+    font-size: 4.5rem;
+    color : #16a085 ;
+    padding-bottom: .5rem;
+    
+    
+}
+
+.icons-container .icons{
+
+    font-size: 3.5rem;
+    color : #444 ;
+    padding: 20px 20px;
+    text-shadow: #16a085;
+}
+
+.icons-container .icons p{
+    font-size: 1.7rem;
+    color : #777;
+    padding: 50px;
+}
+
+/* services */
+
+.services .heading{
+
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    font-size: 45px;
+    
+}
+.services .box-container{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.services .box-container .box{
+
+    background : #fff;
+    border-radius: .5rem;
+    box-shadow: #16a085;
+    border : .2rem solid #16a085 ;
+    padding: 2.5rem;
+    margin: 15px;
+    height: 425px;
+    width: 350px;
+    
+}
+
+.services img{
+    height: 300px;
+    width: 300px;
+}
+.box a{
+    text-decoration: none;
+    /* padding: 50px; */
+    color: black;
+    /* font-weight: 800; */
+}
+
+.box .learn{
+    font-size: 20px;
+    font-weight: 800;
+}
