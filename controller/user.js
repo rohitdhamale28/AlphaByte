@@ -1,8 +1,7 @@
 // this file has all the listing route functions
 // this is done to structure our project in mvc format
 // MVC : Models-Views-Controller
-const Review = require("../models/review.js");
-const Course = require("../models/course.js");
+
 const User = require("../models/user.js");
 
 

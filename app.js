@@ -13,7 +13,7 @@ const wrapAsync = require("./utils/wrapAsync.js");
 const passport = require("passport");
 const localStratergy = require("passport-local");
 const User = require("./models/user.js");
-const Appointment = require(".models/appointment.js");
+const Appointment = require("./models/appointment.js");
 
 
 const sessionOptions = {
@@ -29,10 +29,10 @@ const sessionOptions = {
   };
 
   // all the user route are stored in this file
-const courses = require("./routes/user.js");
+// const courses = require("./routes/user.js");
 
 // all the appointment route are stored in this file
-const reviews = require("./routes/appointment.js");
+// const reviews = require("./routes/appointment.js");
 
 const { validatecourse, isLoggedIn, isOwner } = require("./middleware.js");
 
@@ -46,12 +46,17 @@ app.set("views", path.join(__dirname, "/views"));
 app.use(express.static(path.join(__dirname, "public")));
 app.use(express.urlencoded({ extended: true }));
 
-main().then(() => {
-    console.log("Connected to MongoDB");
-}).catch((err) => console.log(err));
+main()
+  .then(() => {
+    console.log("connection successful")
+  })
+  .catch((err) => console.log(err));
 
+// used to form a connection
 async function main() {
-    await mongoose.connect("mongodb://localhost:27017/healthcare");
+  // this is to connect with local 
+  await mongoose.connect("mongodb://127.0.0.1:27017/healthcare");
+
 }
 
 
@@ -84,7 +89,7 @@ app.use((req, res, next) => {
 });
 
 
-app.use("/", users);
+// app.use("/", users);
 
 
 app.get("/", (req, res) => {
@@ -109,6 +114,7 @@ app.post("/appointment", async (req, res) => {
 });
 
 // Start the server
-app.listen(8080, () => {
-    console.log("Server is running on port 3000");
-});
+app.listen("8080", (req, res) => {
+    console.log("listening on port: 8080");
+  });
+  
