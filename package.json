@@ -1,0 +1,15 @@
+{
+  "name": "alphabyte",
+  "version": "1.0.0",
+  "description": "Healthcare System",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Rohit Dhamale",
+  "license": "ISC",
+  "dependencies": {
+    "cloudinary": "^2.0.3",
+    "connect-flash": "^0.1.1"
+  }
+}
