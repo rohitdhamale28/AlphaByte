@@ -1,23 +1,32 @@
 
+
+.footer{
+    display: block;
+    margin: 5px;
+    text-align: center;
+    
+}
+
 .box .a{
     text-decoration: none;
 }
 .footer .box-container {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 2rem;
+    gap: 1.5rem;
 }
 
 .footer .box-container .box h3{
-    font-size: 2.5rem;
+    font-size: 1.8rem;
     color: #444;
-    padding: 1rem 0;
+    padding: .4rem 0;
 }
 .footer .box-container .box a {
+    text-decoration: none;
     display: block;
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     color: #777;
-    padding: 1rem 0;
+    padding: .8rem 0;
 }
 
 
