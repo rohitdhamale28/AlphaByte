@@ -3,7 +3,7 @@
 // MVC : Models-Views-Controller
 const Review = require("../models/review.js");
 const Course = require("../models/course.js");
-const User = require("../models/user.js");
+const User = require("../models/doctor.js");
 
 
 module.exports.signup=async (req, res) => {

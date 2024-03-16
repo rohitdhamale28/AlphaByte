@@ -8,7 +8,7 @@ const passportLocalMongoose = require("passport-local-mongoose");
 // it's usefull for login and password and has inbuilt hash functions and salts
 
 // passort automatically save a user name if we don't provide it
-const userSchema = new Schema({
+const doctorSchema = new Schema({
     email: {
         type: String,
         required: true,
@@ -22,27 +22,14 @@ const userSchema = new Schema({
         type: String,
 
     },
-    startup:String,
-    post:String,
-    skills:String,
-    followers: [
+   education:String,
+    appointments: [
         {
             type: mongoose.Schema.Types.ObjectId,
-            ref: "User",
+            ref: "Appointment",
         }
     ],
-    following: [
-        {
-            type: mongoose.Schema.Types.ObjectId,
-            ref: "User",
-        }
-    ],
-   blogs: [
-    {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: "Blog",
-    }
-]
+    
     
 });
 
