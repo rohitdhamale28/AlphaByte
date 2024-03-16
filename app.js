@@ -84,6 +84,17 @@ app.use((req, res, next) => {
 });
 
 
+app.use("/", users);
+
+
+app.get("/", (req, res) => {
+  res.render("home/home.ejs");
+});
+
+// about
+app.get("/about", (req, res) => {
+  res.render("home/about.ejs");
+});
 
 app.post("/appointment", async (req, res) => {
     try {
