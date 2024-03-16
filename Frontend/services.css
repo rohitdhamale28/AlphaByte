@@ -1,0 +1,47 @@
+
+/* services */
+
+.services .heading{
+
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    font-size: 45px;
+    
+}
+.services .box-container{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.services .box-container .box{
+
+    background : #fff;
+    border-radius: .5rem;
+    box-shadow: #16a085;
+    border : .2rem solid #16a085 ;
+    padding: 2.5rem;
+    margin: 15px;
+    height: 425px;
+    width: 350px;
+    
+}
+
+.services img{
+    height: 300px;
+    width: 300px;
+}
+.box a{
+    text-decoration: none;
+    /* padding: 50px; */
+    color: black;
+    /* font-weight: 800; */
+}
+
+.box .learn{
+    font-size: 20px;
+    font-weight: 800;
+}
