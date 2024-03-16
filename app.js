@@ -55,6 +55,36 @@ async function main() {
 }
 
 
+
+app.use(session(sessionOptions));
+app.use(flash());
+
+// passort middleware
+// this will intialize our password for every request
+app.use(passport.initialize());
+app.use(passport.session());
+// we have to use this every time before using passort
+passport.use(new localStratergy(User.authenticate()));
+
+passport.serializeUser(User.serializeUser());
+passport.deserializeUser(User.deserializeUser());
+
+
+
+
+
+// middleware to flash messages
+app.use((req, res, next) => {
+  res.locals.success = req.flash("success");
+  res.locals.error = req.flash("error");
+  res.locals.currentUser = req.user;
+  // res.locals.userId= res.locals.currentUser._id;
+
+  next();
+});
+
+
+
 app.post("/appointment", async (req, res) => {
     try {
         const { name, dateTime } = req.body;
