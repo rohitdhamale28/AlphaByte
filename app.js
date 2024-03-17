@@ -158,7 +158,7 @@ app.listen("8080", (req, res) => {
   }));
   
   app.get("/plogin", (req, res) => {
-    res.render("users/plogin.ejs");
+    res.render("users/Plogin.ejs");
   });
   
   
@@ -187,7 +187,7 @@ app.listen("8080", (req, res) => {
     }));
   
     app.get("/dlogin", (req, res) => {
-        res.render("users/dlogin.ejs");
+        res.render("users/Dlogin.ejs");
       });
       
       
