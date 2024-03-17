@@ -123,47 +123,56 @@ app.listen("8080", (req, res) => {
   app.get("/psignup", (req, res) => {
     res.render("users/Psignup.ejs");
   });
+  app.get("/dsignup", (req, res) => {
+    res.render("users/Dsignup.ejs");
+  });
   
   app.post("/psignup", wrapAsync(async (req, res) => {
     try {
       let { username, email,type,image, password } = req.body;
       const newUser = new User({ email,type, username,post,startup,skills,image });
       const registerUser = await User.register(newUser, password);
-      //  console.log(registerUser);
-  
-      // 'req.login' is also a functionallity to login directly after signup built in passport
-      // req.login(registerUser, (err) => {
-      //   if (err) {
-      //     return next(err);
-      //   }
-      //   req.flash("success", " Welcome to StartHub");
-      //   res.redirect("/");
-      // });
-      req.flash("success", " Welcome to StartHub");
+      
+      req.flash("success", " Welcome to Healthify");
       
     }
     catch (err) {
       req.flash("error", err.message);
-      res.redirect("/signup");
+      res.redirect("/psignup");
+    }
+  }));
+
+  app.post("/dsignup", wrapAsync(async (req, res) => {
+    try {
+      let { username, email,type,image, password } = req.body;
+      const newUser = new User({ email,type, username,post,startup,skills,image });
+      const registerUser = await User.register(newUser, password);
+      
+      req.flash("success", " Welcome to Healthify");
+      
+    }
+    catch (err) {
+      req.flash("error", err.message);
+      res.redirect("/dsignup");
     }
   }));
   
-  app.get("/login", (req, res) => {
-    res.render("users/login.ejs");
+  app.get("/plogin", (req, res) => {
+    res.render("users/plogin.ejs");
   });
   
   
   // passort.authenticate is used to check the password
-  app.post("/login",
+  app.post("/plogin",
     passport.authenticate("local",
-      { failureRedirect: `/login`, failureFlash: true }),
+      { failureRedirect: `/plogin`, failureFlash: true }),
     wrapAsync(async (req, res) => {
 
         let { username } = req.body;
     
         const registerUser = await User.findOne({ username: username });
         // console.log(registerUser);
-        req.flash("success", " Welcome to StartHub");
+        req.flash("success", " Welcome to Healthify");
         // rather than /listing  we will redirect to the page which gave login request
        
         if(res.locals.redirectUrl){
@@ -177,7 +186,35 @@ app.listen("8080", (req, res) => {
       //  saveRedirectUrl is also defined in middleware.js
     }));
   
-  
+    app.get("/dlogin", (req, res) => {
+        res.render("users/dlogin.ejs");
+      });
+      
+      
+      // passort.authenticate is used to check the password
+      app.post("/dlogin",
+        passport.authenticate("local",
+          { failureRedirect: `/dlogin`, failureFlash: true }),
+        wrapAsync(async (req, res) => {
+    
+            let { username } = req.body;
+        
+            const registerUser = await User.findOne({ username: username });
+            // console.log(registerUser);
+            req.flash("success", " Welcome to Healthify");
+            // rather than /listing  we will redirect to the page which gave login request
+           
+            if(res.locals.redirectUrl){
+              
+              res.redirect(res.locals.redirectUrl);
+            }else{
+             res.redirect("/");
+            }
+            
+            // res.locals.redirectUrl is defined in Middleware.js
+          //  saveRedirectUrl is also defined in middleware.js
+        }));
+
   app.get("/logout",(req, res, next) => {
     // 'req.logout' is also a functionallity to logout built in passport
     req.logout((err) => {
