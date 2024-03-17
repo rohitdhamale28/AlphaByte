@@ -28,11 +28,7 @@ const sessionOptions = {
     },
   };
 
-  // all the user route are stored in this file
-// const courses = require("./routes/user.js");
 
-// all the appointment route are stored in this file
-// const reviews = require("./routes/appointment.js");
 
 const { validatecourse, isLoggedIn, isOwner } = require("./middleware.js");
 
@@ -88,19 +84,22 @@ app.use((req, res, next) => {
   next();
 });
 
-
-app.use("/", users);
-
-
 app.get("/", (req, res) => {
-  res.render("home/home.ejs");
-});
+    res.render("home/landingpg.ejs");
+  });
+
+// app.use("/", users);
+
+
+
 
 // about
 app.get("/about", (req, res) => {
   res.render("home/about.ejs");
 });
 
+
+// Appointment
 app.post("/appointment", async (req, res) => {
     try {
         const { name, dateTime } = req.body;
@@ -118,3 +117,74 @@ app.listen("8080", (req, res) => {
     console.log("listening on port: 8080");
   });
   
+
+// Login & signup
+
+  app.get("/psignup", (req, res) => {
+    res.render("users/Psignup.ejs");
+  });
+  
+  app.post("/psignup", wrapAsync(async (req, res) => {
+    try {
+      let { username, email,type,image, password } = req.body;
+      const newUser = new User({ email,type, username,post,startup,skills,image });
+      const registerUser = await User.register(newUser, password);
+      //  console.log(registerUser);
+  
+      // 'req.login' is also a functionallity to login directly after signup built in passport
+      // req.login(registerUser, (err) => {
+      //   if (err) {
+      //     return next(err);
+      //   }
+      //   req.flash("success", " Welcome to StartHub");
+      //   res.redirect("/");
+      // });
+      req.flash("success", " Welcome to StartHub");
+      
+    }
+    catch (err) {
+      req.flash("error", err.message);
+      res.redirect("/signup");
+    }
+  }));
+  
+  app.get("/login", (req, res) => {
+    res.render("users/login.ejs");
+  });
+  
+  
+  // passort.authenticate is used to check the password
+  app.post("/login",
+    passport.authenticate("local",
+      { failureRedirect: `/login`, failureFlash: true }),
+    wrapAsync(async (req, res) => {
+
+        let { username } = req.body;
+    
+        const registerUser = await User.findOne({ username: username });
+        // console.log(registerUser);
+        req.flash("success", " Welcome to StartHub");
+        // rather than /listing  we will redirect to the page which gave login request
+       
+        if(res.locals.redirectUrl){
+          
+          res.redirect(res.locals.redirectUrl);
+        }else{
+         res.redirect("/");
+        }
+        
+        // res.locals.redirectUrl is defined in Middleware.js
+      //  saveRedirectUrl is also defined in middleware.js
+    }));
+  
+  
+  app.get("/logout",(req, res, next) => {
+    // 'req.logout' is also a functionallity to logout built in passport
+    req.logout((err) => {
+      if (err) {
+        return next(err);
+      }
+      req.flash("success", "You are Logged out");
+      res.redirect("/");
+    })
+  });
