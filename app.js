@@ -90,7 +90,9 @@ app.get("/", (req, res) => {
 
 // app.use("/", users);
 
-
+app.get("/home", (req, res) => {
+    res.render("home/home.ejs");
+  });
 
 
 // about
@@ -112,11 +114,7 @@ app.post("/appointment", async (req, res) => {
     }
 });
 
-// Start the server
-app.listen("8080", (req, res) => {
-    console.log("listening on port: 8080");
-  });
-  
+
 
 // Login & signup
 
@@ -225,3 +223,10 @@ app.listen("8080", (req, res) => {
       res.redirect("/");
     })
   });
+
+
+  // Start the server
+app.listen("8080", (req, res) => {
+    console.log("listening on port: 8080");
+  });
+  
