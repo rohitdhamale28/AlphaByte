@@ -1,36 +1,45 @@
 
-.box .a{
+
+.pfooter{
+    display: block;
+    margin: 5px;
+    text-align: center;
+    
+}
+
+.pbox .a{
     text-decoration: none;
 }
-.footer .box-container {
+.pfooter .pbox-container {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 2rem;
+    gap: 1.5rem;
 }
 
-.footer .box-container .box h3{
-    font-size: 2.5rem;
+.pfooter .pbox-container .pbox h3{
+    font-size: 1.8rem;
     color: #444;
-    padding: 1rem 0;
+    padding: .4rem 0;
 }
-.footer .box-container .box a {
+.pfooter .pbox-container .pbox a {
+    text-decoration: none;
     display: block;
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     color: #777;
-    padding: 1rem 0;
+    padding: .8rem 0;
 }
 
 
-.footer .box-container .box a i{
+.pfooter .pbox-container .pbox a i{
     padding-right: .5rem;
     color: #16a085;
 }
-.footer .box-container .box a:hover i {
+.pfooter .pbox-container .pbox a:hover i {
     padding-right: .5rem;
     color: #16a085;
 }
 
-.footer .credit{
+.pfooter .pcredit{
     padding: 1rem;
     padding-top: 2rem;
     margin-top: 2rem;
@@ -39,6 +48,6 @@
     color : #777 ;
     border-top: .1rem solid rgba(0,0,0.1);
 }
-footer .credit span{
+.pfooter .pcredit span{
     color :#16a085;
 }
