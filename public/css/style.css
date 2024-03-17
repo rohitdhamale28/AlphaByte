@@ -1,1 +1,460 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
+:root {
+    --green: #16a085;
+    --black: #444;
+    --light-color: #777;
+    --box-shadow: .5rem .5rem 0 rgba(22, 160, 133, 2);
+    --text-shadow: .4rem .4rem 0 rgba(0, 0, 0, 2);
+    --border: .2rem solid var(--green);
+
+}
+
+* {
+    font-family: 'Poppins', sans-serif;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    outline: none;
+    border: none;
+    text-transform: capitalize;
+    transition: all .2s ease-out;
+    text-decoration: none;
+}
+
+html {
+    font-size: 62.5%;
+    overflow-x: hidden;
+    scroll-padding-top: 7em;
+    scroll-behavior: smooth;
+    text-decoration: none;
+}
+
+/* navbar css start */
+
+.header {
+    padding: 2rem 9%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    box-shadow: 0 .5rem 1.5rem rgba(0, 0, 0, 1);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #fff;
+
+}
+
+.header .logo {
+    font-size: 2.5em;
+    color: var(--black);
+    text-decoration: none;
+    /* Add this line to remove underline */
+}
+
+.header .logo i {
+    color: var(--green);
+}
+
+.header .navbar a {
+    font-size: 1.7em;
+    color: var(--light-color);
+    margin-left: 2rem;
+    text-decoration: none;
+
+}
+
+.header .navbar a:hover {
+    color: var(--green);
+
+}
+
+#menu-btn {
+    font-size: 2.5rem;
+    border-radius: .5rem;
+    background: #eee;
+    color: var(--green);
+    padding: 1rem 1.5rem;
+    cursor: pointer;
+    display: none;
+}
+
+/* media-queries */
+@media (max-width: 768px) {
+    #menu-btn {
+        display: block;
+    }
+
+    .header .navbar {
+        position: absolute;
+        top: 115%;
+        right: 2rem;
+        border-radius: .5rem;
+        box-shadow: var(--box-shadow);
+        width: 30rem;
+        border: var(--border);
+        background: #fff;
+        transform: scale(0);
+        transform-origin: top right;
+        transition: transform .3s ease-out;
+    }
+
+    .header .navbar.active {
+        transform: scale(1);
+    }
+
+    .header .navbar a {
+        font-size: 2rem;
+        display: block;
+        margin: 2.5rem;
+    }
+}
+
+
+@media(max-width:450px) {
+
+    html {
+        font-size: 50%;
+    }
+
+}
+
+@media(max-width:991px) {
+    html {
+        font-size: 55%;
+
+    }
+
+    .header {
+        padding: 2rem;
+    }
+}
+
+/* navbar css end */
+
+/* section css start */
+
+section {
+    padding: 2rem 9%;
+}
+
+.m-btn {
+    display: inline-block;
+    margin-top: 1rem;
+    padding: .5rem;
+    padding-left: 1rem;
+    border: var(--border);
+    border-radius: .5rem;
+    box-shadow: var(--box-shadow);
+    color: var(--green);
+    cursor: pointer;
+    font-size: 1.5rem;
+    text-decoration: none;
+}
+
+.m-btn span {
+    padding: .7rem 1rem;
+    border-radius: .5rem;
+    background: var(--green);
+    color: #fff;
+    margin-left: .5rem;
+
+}
+
+.m-btn:hover {
+    background-color: var(--green);
+    color: #fff;
+}
+
+.m-btn:hover span {
+    background-color: var(--green);
+    background-color: #fff;
+    margin-left: 1rem;
+
+}
+
+.home {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    padding-top: 10rem;
+}
+
+.home .image {
+    flex: 1 1 45rem;
+}
+
+.home .image img {
+    width: 100%;
+}
+
+.home .content {
+    flex: 1 1 45rem;
+}
+
+.home .content h3 {
+    font-size: 4.5rem;
+    color: var(--black);
+    line-height: 1.8;
+    padding: 1rem 0;
+}
+
+/* icon css start  */
+section:nth-child(even) {
+    background: #f5f5f5;
+}
+
+.icons-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 2rem;
+
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+
+}
+
+.icons-container .icons {
+    border: .2rem solid #16a085;
+    box-shadow: .2rem solid #16a085;
+    border-radius: .5rem;
+    text-align: center;
+    padding: 2.5rem;
+
+
+}
+
+.icons-container .icons i {
+    font-size: 4.5rem;
+    color: #16a085;
+    padding-bottom: .7rem;
+
+
+}
+
+.icons-container .icons h3 {
+    font-size: 4.5rem;
+    color: black;
+    padding: .5rem 0;
+
+}
+
+.icons-container .icons p {
+    font-size: 1.7rem;
+    color: var(--text-shadow);
+
+}
+
+
+/* icon css end  */
+
+/* services */
+
+.services .heading {
+
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    font-size: 45px;
+
+}
+
+.services .box-container {
+
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.services .box-container .box {
+
+    background: #fff;
+    border-radius: .5rem;
+    box-shadow: #16a085;
+    border: .2rem solid #16a085;
+    padding: 2rem;
+    margin: 15px;
+    height: 450px;
+    width: 365px;
+
+}
+
+.services img {
+    height: 250px;
+    width: 250px;
+}
+
+.services p {
+    font-size: 1.7rem;
+    text-align: center;
+}
+
+.box a {
+    text-decoration: none;
+    /* padding: 50px; */
+    color: black;
+    /* font-weight: 800; */
+}
+
+.box .learn {
+    font-size: 20px;
+    font-weight: 800;
+}
+
+/* service css end  */
+
+/* About Us CSS Start */
+
+.about .heading span {
+    color: #16a085;
+    font-size: 50px;
+    text-shadow: 0.4rem 0.4rem 0 rgba(0, 0, 0, 0.2);
+    margin: 4px;
+    text-align: center;
+}
+
+.about .heading {
+    color: #444;
+    font-size: 50px;
+    text-shadow: 0.4rem 0.4rem 0 rgba(0, 0, 0, 0.2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10px;
+    text-align: center;
+}
+
+.about .row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+}
+
+.about .row .image {
+    flex: 1;
+    max-width: 50%;
+    height: auto;
+    overflow: hidden;
+}
+
+.about .row .image img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+.about .row .content {
+    flex: 1;
+    max-width: 50%;
+    padding: 2rem;
+}
+
+.about .row .content h3 {
+    color: #444;
+    font-size: 2.5rem; /* Adjusted font size */
+    line-height: 1.8;
+}
+
+.about .row .content p {
+    color: #777;
+    padding: 1rem 0;
+    font-size: 1.6rem; /* Adjusted font size */
+    line-height: 1.8;
+}
+
+.about .content .btn {
+    display: block;
+    text-align: center;
+    background-color: #16a085;
+    color: #fff;
+    padding: 1rem 2rem;
+    border-radius: 0.5rem;
+    text-decoration: none;
+    margin-top: 2rem;
+    font-size: 1.6rem;
+}
+
+.about .content .btn:hover {
+    background-color: #138971; /* Darker shade of green on hover */
+}
+
+@media only screen and (max-width: 768px) {
+    .about .row {
+        flex-direction: column;
+    }
+
+    .about .row .image,
+    .about .row .content {
+        max-width: 100%;
+    }
+
+    .about .row {
+        gap: 1rem;
+    }
+}
+
+/* About Us CSS End */
+
+
+/* about us css end  */
+
+
+/* doctor-card css start  */
+.heading {
+    text-align: center;
+    font-size: 50px;
+
+}
+
+h1>span {
+    color: var(--green);
+
+}
+
+.doc-card {
+    border: 2px solid #000000;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+.doc-card .card-img-top {
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.doc-card .card-body {
+    padding: 1.5rem;
+}
+
+.doc-card .card-title {
+    font-size: 3rem;
+    margin-bottom: 10px;
+}
+
+.doc-card .card-text {
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+}
+
+.mu-btn {
+    display: flex;
+    justify-content: space-between;
+    text-decoration: none;
+}
+
+.mu-btn {
+    font-size: 1.48rem;
+    padding: 0.5rem 1.5rem;
+    border-radius: 0.5rem;
+    background-color: black;
+    color: #fff;
+    transition: all 0.3s ease;
+}
